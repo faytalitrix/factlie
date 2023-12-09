@@ -8,10 +8,15 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
+model Factlie {
     id        String      @id @default(cuid())
     createdAt DateTime @default(now())
-    content   String  @db.VarChar(255)
+    fact   String  @db.VarChar(255)
+    factAuthor   String  @db.VarChar(255)
+    factUrl String @db.LongText()
+    lie    String  @db.VarChar(255)
+    lieAuthor  String  @db.VarChar(255)
+    lieUrl String @db.LongText()
     authorId  String
     @@index([authorId])
 }
